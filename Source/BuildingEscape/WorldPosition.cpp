@@ -20,15 +20,8 @@ void UWorldPosition::BeginPlay()
 {
 	Super::BeginPlay();
 
-	FString Log = TEXT("ganadaramabasa");
-	FString* PtrLog = &Log;
-
-	Log.Len();
-	PtrLog->Len();
-	
-	UE_LOG(LogTemp, Warning, TEXT("%s"), *Log);
-
-	GetOwner()->
+	UE_LOG(LogTemp, Warning, TEXT("Object name is %s"), *(GetOwner()->GetActorLocation().ToString()));
+	FVector MyVector(1, 1, 1);
 	
 }
 
