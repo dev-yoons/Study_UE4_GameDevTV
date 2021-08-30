@@ -4,6 +4,7 @@
 * 간단한 에디터 동작
 * In Game Terminal에 텍스트 출력하기
 * C++ 코드 복습 
+* Unreal C++
 
 ### 간단한 에디터 동작
 ---------------------------------
@@ -43,6 +44,7 @@ FString HiddenWord = TEXT("water");
 ```  
 
 FString은 **TCHAR의 TARRAY**이다.
+마찬가지로, 마지막에 \0 이 붙는다.
 ```C++
 HiddenWord[0];
 ``` 
@@ -62,7 +64,7 @@ string variable을 사용할 때, TEXT() 매크로를 일반적으로 사용한�
 TEXT("water");
 ```  
 
-### C++ 코드 복습
+### C++ 코드
 ---------------------------------
 * Const Member Function
 ```C++
@@ -73,10 +75,31 @@ bool UBullCowCartridge::IsIsogram(FString Word) const
 ```  
 와 같이 표현되는 const 멤버함수는 객체의 멤버변수를 변경할 수 없는 읽기 전용 함수이다.
 
+* 범위 기반 for문 (Range-based for loop)
+```C++
+for (int num:IntArr)
+    std::cout << num << ' ';
+```  
+C++11 부터 위와 같은 for문을 사용할 수 있다. 
+### Unreal C++
+---------------------------------
+* TArray
+```C++
+const TArray<type> Name = {e1, e2, e3, ... };
+```  
+언리얼 엔진에서는 TArray를 배열로 자주 사용한다.
+```C++
+const TArray<int32> IntArr;
 
+IntArr.Init(10,5);  // [10,10,10,10,10]
+IntArr.Emplace(11); // [10,10,10,10,10,11]
+IntArr.Add(11);     // [10,10,10,10,10,11,11]
+// Emplace는 임시 변수 생성을 하지 않으므로 복잡한 type을 사용할 때 바람직하다. 일반적으로 Emplace가 더 좋다.
 
+IntArr.Num(); // 배열 길이를 return한다.
 
+IntArr.Sort(); // 기본으로 정렬을 제공한다.
 
-
-
+// 기타 등등 ...
+``` 
 
