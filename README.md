@@ -2,10 +2,9 @@
 
 ## 내용 정리
   - [Unreal C++](#unreal-c++)
-  - [Mesh, Texture 조작](#-mesh-texture-조작)
+  - [Mesh, Texture 조작](#mesh,-texture-조작)
 
-### Unreal C++ 
-#unreal-c++
+###Unreal C++ 
 ---------------------------------
 - Log 출력
 ```C++
@@ -36,5 +35,5 @@ FVector MyVector = GetOwner()->GetActorLocation();
 ```
 
 
-### Mesh, Texture 조작
+###Mesh, Texture 조작
 ---------------------------------
