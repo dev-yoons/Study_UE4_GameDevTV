@@ -19,7 +19,6 @@ UWorldPosition::UWorldPosition()
 void UWorldPosition::BeginPlay()
 {
 	Super::BeginPlay();
-
 	UE_LOG(LogTemp, Warning, TEXT("Object name is %s"), *(GetOwner()->GetActorLocation().ToString()));
 	FVector MyVector(1, 1, 1);
 	
