@@ -27,7 +27,7 @@ void APawnTurret::Tick(float DeltaTime)
 
 void APawnTurret::CheckFireCondition()
 {
-	if (!PlayerTank)
+	if (!PlayerTank || !PlayerTank->GetIsPlayerAlive())
 		return;
 	if (DistanceToPlayer() <= FireRange)
 	{
