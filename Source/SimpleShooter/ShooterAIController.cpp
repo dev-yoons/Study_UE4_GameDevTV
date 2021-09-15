@@ -4,6 +4,7 @@
 #include "ShooterAIController.h"
 #include "Kismet/GameplayStatics.h"
 #include "BehaviorTree/BlackboardComponent.h"
+#include "ShooterCharacter.h"
 
 void AShooterAIController::BeginPlay()
 {
@@ -20,15 +21,14 @@ void AShooterAIController::BeginPlay()
 void AShooterAIController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+}
 
-	APawn* PlayerPawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
-	if (LineOfSightTo(PlayerPawn))
+bool AShooterAIController::IsDead() const
+{
+	AShooterCharacter* ControlledCharacter = Cast<AShooterCharacter>(GetPawn());
+	if (ControlledCharacter != nullptr)
 	{
-		SetFocus(PlayerPawn);
-		//MoveToActor(PlayerPawn); 
+		return ControlledCharacter->IsDead();
 	}
-	else {
-		ClearFocus(EAIFocusPriority::Gameplay);
-		StopMovement();
-	}
+	return true;
 }
